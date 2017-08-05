@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+
+    "name": "IS Prettify",
+    "description": "-",
+    "version": "1.0",
+
+
+    "permissions": [
+        "activeTab", "webNavigation"
+    ],
+
+    "background": {
+        "scripts": ["jQuery-ver3.js", "background.js"],
+        "persistent": true
+    },
+
+    "content_scripts": [{
+            "matches":   ["http://www.is.fi/", "http://www.is.fi/*"],
+            "js":        ["jQuery-ver3.js", "create-cover.js"],
+            "run_at": "document_start"
+        }, {
+            "matches": ["http://www.is.fi/", "http://www.is.fi/*"],
+            "js": ["jQuery-ver3.js", "css-inject.js"],
+            "run_at": "document_end"
+        }
+     ]
+}
